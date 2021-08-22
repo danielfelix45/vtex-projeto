@@ -1,0 +1,14 @@
+.slide {
+  background: #303030;
+  padding: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.slideChildrenContainer {
+  width: 90%;
+
+}
+.paginationDotsContainer {
+  padding: 5px;
+}

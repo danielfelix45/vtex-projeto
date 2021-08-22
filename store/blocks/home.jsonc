@@ -1,15 +1,196 @@
 {
-  "store.home": { 
+  "store.home": {
     "blocks": [
-      "rich-text"
+      "tab-layout#home",
+      "slider-layout#home-images",
+      "search-result-layout.customQuery#home"
     ]
   },
-  "rich-text": { 
-    "props": { 
-      "text": "VTEX Store Framework",
-      "textAlignment": "CENTER",
-      "textPosition": "CENTER",
-      "font": "t-heading-1"
+  "tab-layout#home": {
+    "children": [
+      "tab-list#home",
+      "tab-content#home"
+    ]
+  },
+  "tab-list#home": {
+    "children": [
+      "tab-list.item#home1",
+      "tab-list.item#home2",
+      "tab-list.item#home3",
+      "tab-list.item#home4",
+      "tab-list.item#home5"
+    ]
+  },
+  "tab-list.item#home1": {
+    "props": {
+      "tabId": "promocao",
+      "label": "PROMOÇÃO",
+      "defaultActiveTabId": true
+    }
+  },
+  "tab-list.item#home2": {
+    "props": {
+      "tabId": "corinthians",
+      "label": "CORINTHIANS"
+    }
+  },
+  "tab-list.item#home3": {
+    "props": {
+      "tabId": "palmeiras",
+      "label": "PALMEIRAS"
+    }
+  },
+  "tab-list.item#home4": {
+    "props": {
+      "tabId": "signos",
+      "label": "SIGNOS"
+    }
+  },
+  "tab-list.item#home5": {
+    "props": {
+      "tabId": "divertidos",
+      "label": "DIVERTIDOS"
+    }
+  },
+  "tab-content#home": {
+    "children": [
+      "tab-content.item#home1",
+      "tab-content.item#home2"
+    ]
+  },
+  "tab-content.item#home1": {
+    "props": {
+      "tabId": "home1"
+    }
+  },
+  "tab-content.item#home2": {
+    "props": {
+      "tabId": "home2"
+    }
+  },
+  "slider-layout#home-images": {
+    "props": {
+      "itemsPerPage": {
+        "desktop": 1,
+        "tablet": 1,
+        "phone": 1
+      },
+      "infinite": true,
+      "showNavigationArrows": "always",
+      "blockClass": "carousel",
+      "autoplay": {
+        "timeout": 5000,
+        "stopOnHover": true
+      }
+    },
+    "children": [
+      "image#banner1",
+      "image#banner2"
+    ]
+  },
+  "image#banner1": {
+    "props": {
+      "src": "assets/upmedal-image1.png",
+      "alt": "Banner Wood Sports",
+      "width": "100%",
+      "blockClass": "banner"
+    }
+  },
+  "image#banner2": {
+    "props": {
+      "src": "assets/upmedal-image2.png",
+      "alt": "Banner Grandes Guerreiros",
+      "width": "100%",
+      "blockClass": "banner"
+    }
+  },
+  "search-result-layout.customQuery#home": {
+    "props": {
+      "querySchema": {
+        "skusFilter": "FIRST_AVAILABLE",
+        "simulationBehavior": "skip",
+        "maxItemsPerPage": 8,
+        "blocClass": "sr"
+      }
+    },
+    "blocks": [
+      "search-result-layout.desktop#home"
+      // "search-result-layout.mobile#home"
+    ]
+  },
+  "search-result-layout.desktop#home": {
+    "children": [
+      "search-content#home"
+    ],
+    "props": {
+      "preventRouteChange": true
+    }
+  },
+  "search-content#home": {
+    "blocks": [
+      "gallery#home",
+      "not-found"
+    ]
+  },
+  "gallery#home": {
+    "props": {
+      "layouts": [
+        {
+          "name": "grid",
+          "component": "GridSummary",
+          "itemsPerRow": {
+            "(min-width:1300px)": 2,
+            "desktop": 2,
+            "tablet": 2,
+            "phone": 1
+          }
+        },
+        {
+          "name": "list",
+          "component": "ListSummary",
+          "itemsPerRow": 1
+        }
+      ],
+      "ListSummary": "product-summary.shelf#lp",
+      "GridSummary": "product-summary.shelf#lp"
+    }
+  },
+  "product-summary.shelf#lp": {
+    "children": [
+      "product-summary-name",
+      "product-images#lp",
+      "vtex.product-highlights@2.x:product-highlights",
+      "vtex.product-highlights@2.x:product-highlights",
+      "product-summary-price",
+      "add-to-cart-button#lp"
+    ],
+    "props": {
+      "blockClass": [
+        "aoba",
+        "teste"
+      ]
+    }
+  },
+  "product-images#lp": {
+    "props": {
+      "showNavigationArrows": true,
+      "showPaginationDots": true
+    }
+  },
+  "vtex.product-highlights@2.x:product-highlights": {
+    "children": [
+      "product-highlight-text"
+    ]
+  },
+  "product-highlight-text": {
+    "props": {
+      "message": "opaaaa"
+    }
+  },
+  "add-to-cart-button#lp": {
+    "props": {
+      "onClickBehavior": "go-to-product-page",
+      "text": "Ver detalhes"
     }
   }
 }
